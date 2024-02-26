@@ -5,6 +5,8 @@ return {
     dependencies = {
       "anuvyklack/middleclass",
     },
-    config = true,
+    config = function()
+      require("windows").setup()
+    end,
   },
 }

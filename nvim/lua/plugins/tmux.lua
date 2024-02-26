@@ -1,6 +1,7 @@
 return {
   {
     "aserowy/tmux.nvim",
+    lazy = true,
     config = function()
       local tmux = require("tmux")
 
@@ -10,6 +11,7 @@ return {
 
   {
     "vimpostor/vim-tpipeline",
+    enabled = false,
     event = "VeryLazy",
     init = function()
       vim.g.tpipeline_autoembed = 0

@@ -2,6 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 --
+
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
@@ -10,17 +11,16 @@ local opts = { noremap = true, silent = true }
 ---------------------
 
 -- clear search highlights
-keymap.set("n", "<leader>nh", ":nohl<CR>")
+keymap.set("n", "<leader>nh", ":nohl<CR>", opts)
 
 -- delete single character without copying into register
-keymap.set("n", "x", '"_x')
+keymap.set("n", "x", '"_x', opts)
 
 -- window management
-keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
--- #TODO: fix this keybinding conflict
-keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
-keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
-keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
+keymap.set("n", "<leader>sv", "<C-w>v", opts) -- split window vertically
+keymap.set("n", "<leader>sh", "<C-w>s", opts) -- split window horizontally
+keymap.set("n", "<leader>se", "<C-w>=", opts) -- make split windows equal width & height
+keymap.set("n", "<leader>sx", ":close<CR>", opts) -- close current split window
 
 -- tab management
 -- keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
@@ -33,57 +33,58 @@ keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 ----------------------
 
 -- telescope
-keymap.set("n", "<leader><leader>", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
--- keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
-keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
-keymap.set("n", "<leader>fgc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<leader><leader><leader>", "<cmd>Telescope live_grep_args<cr>") -- live grep with arguments option enabled
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
-keymap.set("n", "<leader>fd", "<cmd>Telescope file_browser<CR>") -- opens telescope-file-browser
-keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
-keymap.set("n", "<leader>fs", "<cmd>Telescope luasnip<cr>") -- list available snippets for the file type
-keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<cr>") -- list recent files
-keymap.set("n", "<leader>fgb", "<cmd>Telescope current_buffer_fuzzy_find<cr>") -- fuzzy finding inside the current buffer
-keymap.set("n", "<leader>ft", "<cmd>Telescope tags<cr>") -- list tags of the current directory
-keymap.set("n", "<leader>fct", "<cmd>Telescope current_buffer_tags<cr>") -- list tags inside the current buffer
-keymap.set("n", "<leader>frg", "<cmd>Telescope registers<cr>") -- list vim registers
-keymap.set("n", "<leader>fj", "<cmd>Telescope jumplist<cr>") -- list jumplist
-keymap.set("n", "<leader>fcm", "<cmd>Telescope commands<cr>") -- list available vim commands
-keymap.set("n", "<leader>fsh", "<cmd>Telescope search_history<cr>") -- list recent search history
-keymap.set("n", "<leader>fcs", "<cmd>Telescope colorscheme<cr>") -- list colorschemes
-keymap.set("n", "<leader>fkm", "<cmd>Telescope Keymaps<cr>") -- list keymaps
-keymap.set("n", "<leader>fhl", "<cmd>Telescope highlights<cr>") -- list highlights
-keymap.set("n", "<leader>ftc", "<cmd>Telescope builtin<cr>") -- list telescope commands
-keymap.set("n", "<leader>fts", "<cmd>Telescope treesitter<cr>") -- list treesitter elements
-keymap.set("n", "<leader>fr", "<cmd>Telescope resume<cr>") -- last telescope command
---keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>") -- list undo tree
-keymap.set("n", "<leader>ffc", "<cmd>Telescope frecency<cr>") -- list undo tree
--- keymap.set("n", "<leader>fga", "<cmd>Telescope live_grep_args<cr>") -- live grep with arguments option enabled
+keymap.set("n", "<leader><leader>", "<cmd>Telescope find_files<cr>", opts) -- find files within current working directory, respects .gitignore
+-- keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", opts) -- find files within current working directory, respects .gitignore
+keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts) -- find string in current working directory as you type
+keymap.set("n", "<leader>fgc", "<cmd>Telescope grep_string<cr>", opts) -- find string under cursor in current working directory
+keymap.set("n", "<leader><leader><leader>", "<cmd>Telescope live_grep_args<cr>", opts) -- live grep with arguments option enabled
+keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", opts) -- list open buffers in current neovim instance
+keymap.set("n", "<leader>fd", "<cmd>Telescope file_browser<CR>", opts) -- opens telescope-file-browser
+keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts) -- list available help tags
+keymap.set("n", "<leader>fs", "<cmd>Telescope luasnip<cr>", opts) -- list available snippets for the file type
+keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<cr>", opts) -- list recent files
+keymap.set("n", "<leader>fgb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts) -- fuzzy finding inside the current buffer
+keymap.set("n", "<leader>ft", "<cmd>Telescope tags<cr>", opts) -- list tags of the current directory
+keymap.set("n", "<leader>fct", "<cmd>Telescope current_buffer_tags<cr>", opts) -- list tags inside the current buffer
+keymap.set("n", "<leader>frg", "<cmd>Telescope registers<cr>", opts) -- list vim registers
+keymap.set("n", "<leader>fj", "<cmd>Telescope jumplist<cr>", opts) -- list jumplist
+keymap.set("n", "<leader>fcm", "<cmd>Telescope commands<cr>", opts) -- list available vim commands
+keymap.set("n", "<leader>fsh", "<cmd>Telescope search_history<cr>", opts) -- list recent search history
+keymap.set("n", "<leader>fcs", "<cmd>Telescope colorscheme<cr>", opts) -- list colorschemes
+keymap.set("n", "<leader>fkm", "<cmd>Telescope Keymaps<cr>", opts) -- list keymaps
+keymap.set("n", "<leader>fhl", "<cmd>Telescope highlights<cr>", opts) -- list highlights
+keymap.set("n", "<leader>ftc", "<cmd>Telescope builtin<cr>", opts) -- list telescope commands
+keymap.set("n", "<leader>fts", "<cmd>Telescope treesitter<cr>", opts) -- list treesitter elements
+keymap.set("n", "<leader>fr", "<cmd>Telescope resume<cr>", opts) -- last telescope command
+--keymap.set("n", "<leader>fu", "<cmd>Telescope undo<cr>", opts) -- list undo tree
+keymap.set("n", "<leader>ffc", "<cmd>Telescope frecency<cr>", opts) -- list undo tree
+-- keymap.set("n", "<leader>fga", "<cmd>Telescope live_grep_args<cr>", opts) -- live grep with arguments option enabled
 
 -- git commands
-keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout)
-keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer
-keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout)
-keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview
-keymap.set("n", "<leader>gst", "<cmd>Telescope git_stash<cr>") -- list stash items in the current repository
-keymap.set("n", "<leader>gbl", "<cmd>Git blame<cr>") -- list stash items in the current repository
-keymap.set("n", "<leader>ds", "<cmd>Gdiffsplit<cr>") -- shows diff in a split window
-keymap.set("n", "<leader>dv", "<cmd>DiffviewOpen<cr>") -- run diffview
-keymap.set("n", "<leader>dc", "<cmd>DiffviewClose<cr>") -- close diffview
+keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", opts) -- list all git commits (use <cr> to checkout)
+keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>", opts) -- list git commits for current file/buffer
+keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", opts) -- list git branches (use <cr> to checkout)
+keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>", opts) -- list current changes per file with diff preview
+keymap.set("n", "<leader>gst", "<cmd>Telescope git_stash<cr>", opts) -- list stash items in the current repository
+keymap.set("n", "<leader>gbl", "<cmd>Git blame<cr>", opts) -- list stash items in the current repository
+keymap.set("n", "<leader>ds", "<cmd>Gdiffsplit<cr>", opts) -- shows diff in a split window
+keymap.set("n", "<leader>dv", "<cmd>DiffviewOpen<cr>", opts) -- run diffview
+keymap.set("n", "<leader>dc", "<cmd>DiffviewClose<cr>", opts) -- close diffview
 
 -- windows
-keymap.set("n", "<C-w>z", "<cmd>WindowsMaximize<cr>")
-keymap.set("n", "<C-w>_", "<cmd>WindowsMaximizeVertically<cr>")
-keymap.set("n", "<C-w>|", "<cmd>WindowsMaximizeHorizontally<cr>")
-keymap.set("n", "<C-w>=", "<cmd>WindowsEqualize<cr>")
+keymap.set("n", "<C-w>z", "<cmd>WindowsMaximize<cr>", opts)
+keymap.set("n", "<C-w>_", "<cmd>WindowsMaximizeVertically<cr>", opts)
+keymap.set("n", "<C-w>|", "<cmd>WindowsMaximizeHorizontally<cr>", opts)
+keymap.set("n", "<C-w>=", "<cmd>WindowsEqualize<cr>", opts)
 
 -- set Option+i to Esc
-keymap.set("i", "ˆ", "<Esc>")
+keymap.set("i", "<M-i>", "<Esc>", opts)
+keymap.set("n", "<M-i>", "<Esc>", opts)
 
 -- bufferline keymaps
-keymap.set("n", "≤", "<Cmd>BufferLineCyclePrev<CR>")
-keymap.set("n", "≥", "<Cmd>BufferLineCycleNext<CR>")
-keymap.set("n", "ç", "<Cmd>bdelete<CR>")
+keymap.set("n", "≤", "<Cmd>BufferLineCyclePrev<CR>", opts)
+keymap.set("n", "≥", "<Cmd>BufferLineCycleNext<CR>", opts)
+keymap.set("n", "ç", "<Cmd>bdelete<CR>", opts)
 
 -- oil
 keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
